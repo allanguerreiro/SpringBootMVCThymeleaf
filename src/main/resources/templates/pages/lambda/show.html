@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<head>
+    <title>Hello Spring Boot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+    <th:block layout:fragment="content">
+        <div class="container">
+            <center><h2>Lambda Expression Java 8</h2></center>
+            <div>
+                <center><img src="../../../static/images/lambdaCut.png" th:attr="src=@{/images/lambdaCut.png}"/></center>
+            </div>
+
+            <div th:if="${not #lists.isEmpty(names)}">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                    <th:block th:each="name : ${names}">
+                        <tr>
+                            <td th:text="${name}">name</td>
+                        </tr>
+                    </th:block>
+                </table>
+            </div>
+        </div>
+    </th:block>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<head>
+    <title>Hello Spring Boot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="hero-unit">
+        <center><h1>Operations</h1></center>
+        <p>
+            Welcome to the Spring Boot Thymeleaf Application! The time is: <strong
+                th:text="${#temporals.format(now, 'dd/MMM/yyyy HH:mm')}">31/12/2015 15:00</strong>
+        </p>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="#" th:href="@{/user/users}" class="btn btn-large btn-success">User</a>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <a href="#" th:href="@{/comparator/ordering}" class="btn btn-large btn-success">Comparator</a>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <a href="#" th:href="@{/stream/filter}" class="btn btn-large btn-success">Stream Filter</a>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <a href="#" th:href="@{/stream/groupingBy}" class="btn btn-large btn-success">Stream GroupingBy</a>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <a href="#" th:href="@{/stream/map}" class="btn btn-large btn-success">Stream Map</a>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <a href="#" th:href="@{/lambda/expression}" class="btn btn-large btn-success">Lambda</a>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <a href="#" th:href="@{/optional/isPresent}" class="btn btn-large btn-success">Optional</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h1>Spring Actuator</h1>
+        <p>
+            Actuator endpoints allow you to monitor and interact with your application.
+            Spring Boot includes a number of built-in endpoints and you can also add your own.
+        </p>
+    </div>
+</th:block>
+</body>
+</html>

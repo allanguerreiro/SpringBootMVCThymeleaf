@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<head>
+    <title>Hello Spring Boot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+        .bold {font-weight:bold;}
+        .center {text-align: center}
+    </style>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="container">
+        <center><h2>Stream "Map" Java 8</h2></center>
+        <div class="center">
+            <img src="../../../static/images/groupingByCut.png" th:attr="src=@{/images/groupingByCut.png}"/>
+        </div>
+        </br>
+        </br>
+        <div>
+            <div th:if="${not #lists.isEmpty(maps)}">
+                <table class="table table-striped">
+                    <th:block th:each="map : ${maps}">
+                        <tr>
+                            <td class="bold" th:bgcolor="SteelBlue" th:text="${map.key}">Cidade</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table class="table table-striped">
+                                    <th:block th:each="users : ${map.value}">
+                                        <th:block th:each="user : ${users}">
+                                            <tr>
+                                                <td style="border-style: none; font-style: oblique"
+                                                    th:text="${user.name}">name
+                                                </td>
+                                            </tr>
+                                        </th:block>
+                                    </th:block>
+                                </table>
+                            </td>
+                        </tr>
+                    </th:block>
+                </table>
+            </div>
+        </div>
+    </div>
+</th:block>
+</body>
+</html>

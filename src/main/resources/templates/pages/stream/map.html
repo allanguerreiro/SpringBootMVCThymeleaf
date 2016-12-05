@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<head>
+    <title>Hello Spring Boot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="container">
+        <center><h2>Stream "Filter" Java 8</h2></center>
+        <div>
+            <center><img src="../../../static/images/mapCut.png" th:attr="src=@{/images/mapCut.png}"/></center>
+        </div>
+
+        <div>
+            <div th:if="${not #lists.isEmpty(names)}">
+                <table class="table table-striped">
+                    <tr th:each="name : ${names}">
+                        <td th:text="${name}">name</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</th:block>
+</body>
+</html>
