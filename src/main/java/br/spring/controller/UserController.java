@@ -4,14 +4,13 @@ import br.spring.model.User;
 import br.spring.persistence.UserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.inject.Inject;
 
 /**
  * Created by allan on 30/11/16.
@@ -22,7 +21,7 @@ public class UserController {
     private final Logger log = LoggerFactory.getLogger(UserController.class.getName());
     private final UserDao userDao;
 
-    @Inject
+    @Autowired
     public UserController(UserDao userDao) {
         this.userDao = userDao;
     }
